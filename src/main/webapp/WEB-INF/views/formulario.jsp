@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,20 +21,28 @@
 
         <label>Nombre:
             <input type="text" name="nombre" required
-                value="<c:out value="${producto.nombre}"/>">
+                value="<c:out value="${not empty nombre ? nombre : producto.nombre}"/>">
         </label>
-        <label>Categoría:
+        <label>Categoria:
             <input type="text" name="categoria"
-                value="<c:out value="${producto.categoria}"/>">
+                value="<c:out value="${not empty categoria ? categoria : producto.categoria}"/>">
         </label>
         <label>Precio:
             <input type="number" name="precio" step="0.01" min="0" required
-                value="${producto.precio}">
+                value="${not empty precio ? precio : producto.precio}">
         </label>
         <label>Stock:
             <input type="number" name="stock" min="0" required
-                value="${producto.stock}">
+                value="${not empty stock ? stock : producto.stock}">
         </label>
+
+        <c:if test="${not empty errores}">
+            <div class="alert-error">
+                <c:forEach var="error" items="${errores.values()}">
+                    <p><c:out value="${error}"/></p>
+                </c:forEach>
+            </div>
+        </c:if>
 
         <button type="submit">${empty producto ? "Guardar" : "Actualizar"}</button>
         <a href="<c:url value="/productos"/>">Cancelar</a>

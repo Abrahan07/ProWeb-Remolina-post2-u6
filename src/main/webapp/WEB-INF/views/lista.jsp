@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +11,6 @@
 <body>
     <h1>Inventario de Productos</h1>
 
-    <!-- Mensaje de éxito -->
     <c:if test="${not empty mensaje}">
         <p class="alert-success">${mensaje}</p>
     </c:if>
@@ -23,7 +22,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Categoría</th>
+                <th>Categoria</th>
                 <th>Precio</th>
                 <th>Stock</th>
                 <th>Acciones</th>
@@ -36,14 +35,13 @@
                     <td><c:out value="${p.nombre}"/></td>
                     <td><c:out value="${p.categoria}"/></td>
                     <td>
-                        <fmt:formatNumber value="${p.precio}"
-                            type="currency" currencySymbol="$"/>
+                        <fmt:formatNumber value="${p.precio}" type="currency" currencySymbol="$"/>
                     </td>
                     <td>${p.stock}</td>
                     <td>
                         <a href="<c:url value="/productos?accion=editar&id=${p.id}"/>">Editar</a> |
                         <a href="<c:url value="/productos?accion=eliminar&id=${p.id}"/>"
-                            onclick="return confirm('¿Eliminar ${p.nombre}?')">Eliminar</a>
+                           onclick="return confirm('Eliminar ${p.nombre}?')">Eliminar</a>
                     </td>
                 </tr>
             </c:forEach>

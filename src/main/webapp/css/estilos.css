@@ -35,7 +35,8 @@ label {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
     padding: 6px 10px;
     width: 300px;
 }
@@ -58,4 +59,11 @@ a { color: #065A82; }
     color: #2E7D32;
     padding: 8px 12px;
     margin-bottom: 1rem;
+}
+
+.alert-error {
+    background: #FDECEA;
+    color: #B3261E;
+    padding: 8px 12px;
+    margin: 1rem 0;
 }
