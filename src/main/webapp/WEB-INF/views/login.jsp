@@ -4,27 +4,31 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar sesion</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="<c:url value="/css/estilos.css"/>">
 </head>
 <body>
-    <h1>Iniciar sesion</h1>
+    <h1>Iniciar Sesión</h1>
 
+    <!-- Mensaje de error de credenciales -->
     <c:if test="${not empty errorLogin}">
-        <p class="alert-error"><c:out value="${errorLogin}"/></p>
+        <p class="alert-error">${errorLogin}</p>
     </c:if>
 
     <form method="post" action="<c:url value="/login"/>">
         <label>Usuario:
             <input type="text" name="username" required>
         </label>
-        <label>Contrasena:
+        <label>Contraseña:
             <input type="password" name="password" required>
         </label>
-
-        <button type="submit">Entrar</button>
+        <button type="submit">Ingresar</button>
     </form>
 
-    <p>Usuarios de prueba: <strong>admin</strong> / <strong>Admin123!</strong> y <strong>viewer</strong> / <strong>View456!</strong></p>
+    <p><strong>Usuarios de prueba:</strong></p>
+    <ul>
+        <li>admin / Admin123!</li>
+        <li>viewer / View456!</li>
+    </ul>
 </body>
 </html>
