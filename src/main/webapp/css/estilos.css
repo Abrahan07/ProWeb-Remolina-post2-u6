@@ -62,8 +62,19 @@ a { color: #065A82; }
 }
 
 .alert-error {
-    background: #FDECEA;
-    color: #B3261E;
+    background: #FFEBEE;
+    color: #C62828;
     padding: 8px 12px;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
+    border-left: 4px solid #C62828;
+}
+
+.input-error {
+    border: 2px solid #C62828;
+}
+
+.campo-error {
+    color: #C62828;
+    font-size: 0.85rem;
+    display: block;
 }
